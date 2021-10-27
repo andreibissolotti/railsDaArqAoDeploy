@@ -1,2 +1,9 @@
 <h1>Home#index</h1>
 <p>Hello <%= @email %></p>
+<% if user_signed_in? %>
+  <% if current_user.restaurant? %>
+    <%= render 'restaurant'%>
+  <% elsif current_user.custumer? %>
+    <%= render 'custumer' %>
+  <%end%>
+<%end%>
